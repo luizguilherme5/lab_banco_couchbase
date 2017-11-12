@@ -1,0 +1,22 @@
+{
+  "name": "express_couch_node",
+  "version": "1.0.0",
+  "description": "Sample node + couchbase project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rahul Verma",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "couchbase": "^2.2.2",
+    "express": "^4.14.0",
+    "http": "0.0.0",    
+    "request": "^2.75.0",
+    "uuid": "^2.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.10.2"
+  }
+}

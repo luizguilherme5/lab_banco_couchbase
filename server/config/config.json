@@ -1,0 +1,8 @@
+{
+    "couchbase": {
+        "server": "127.0.0.1:8091",
+        "bucket": "lab_banco",
+        "doc_name": "sales_doc",
+        "view_name": "sales_active"
+    }
+}

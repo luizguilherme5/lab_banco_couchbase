@@ -1,0 +1,11 @@
+// This is a Couchbase view for active sales
+function (doc, meta) {
+  if(meta.id.includes("sale")){
+    if(doc.endDate){
+      if((new Date( Date.parse(doc.endDate)) >= new Date())
+         		&& (new Date( Date.parse(doc.startDate)) <= new Date()) ){
+  			emit(doc);
+      }
+    }
+  }
+}
