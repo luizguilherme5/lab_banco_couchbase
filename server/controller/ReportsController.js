@@ -90,7 +90,7 @@ var reportsController = function(app) {
 
     //Different Values
     function verifyDiffValues(req, res) {
-        DifferentValuesModel.fetchAll(function(error, result) {
+        DifferentValuesModel.fetchAll(req.params.orderDiff, function(error, result) {
             if (error) {
                 res.set("lab_banco_msg", error.message)
                 res.status(400).send();

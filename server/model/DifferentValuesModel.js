@@ -9,11 +9,11 @@ function DifferentValuesModel() {
 };
 
 // Pedidos atendidos por data:
-DifferentValuesModel.fetchAll = function (callback) {
+DifferentValuesModel.fetchAll = function (orderDiff, callback) {
     console.log("Entrou diff-values")
-    var statement = "SELECT * FROM `" + bucketName + "` t1 WHERE t1.orderNum == t1.chitOrderNum AND t1.chitFinalPrice != t1.orderTotalPrice;"
+    var statement = "SELECT orderNum, chitOrderNum, orderTotalPrice, chitFinalPrice FROM `" + bucketName + "` t1 WHERE t1.orderNum LIKE t1.chitOrderNum AND t1.chitFinalPrice NOT LIKE t1.orderTotalPrice;"
     var query = N1qlQuery.fromString(statement);
-    bucket.query(query, ["order_"], function (error, result) {
+    bucket.query(query, ["order_" + orderDiff], function (error, result) {
         if (error) {
             callback(error, null);
             return;
