@@ -1,6 +1,11 @@
 # lab_banco_couchbase
 Uma aplicação que usa Node, Express, REST Services, Couchbase e NOSQL
 
+# Alunos:
+* Cauê Mateus de Oliveira - 14/0056068
+* Gustavo Vieira Braz - 14/0041478
+* Luiz Guilherme Silva - 14/0056645
+
 # Instalação
 * Instale o Postman
 * Instale o Couchbase Server (Community Edition)
