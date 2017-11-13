@@ -1,4 +1,4 @@
-console.log("Product Services server will be up shortly");
+console.log("Seu servidor vai rodar em instantes...");
 
 const express = require('express');
 var http = require('http');
@@ -12,6 +12,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 module.exports.bucket = (new couchbase.Cluster(config.couchbase.server)).openBucket(config.couchbase.bucket,config.couchbase.password);
 
 var productRoute  = require("./server/controller/ProductsController.js")(app)
+var userRoute  = require("./server/controller/UsersController.js")(app)
+var orderRoute  = require("./server/controller/OrdersController.js")(app)
 
 app.listen(3000, function() {
   console.log('rodando na porta 3000')
