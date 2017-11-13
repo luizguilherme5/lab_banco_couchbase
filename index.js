@@ -14,7 +14,7 @@ module.exports.bucket = (new couchbase.Cluster(config.couchbase.server)).openBuc
 var productRoute  = require("./server/controller/ProductsController.js")(app)
 
 app.listen(3000, function() {
-  console.log('listening on 3000')
+  console.log('rodando na porta 3000')
 })
 
 app.get('/', (req, res) => {
