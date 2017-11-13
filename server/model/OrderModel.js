@@ -26,7 +26,8 @@ function OrderModel() {
     },
     "orderPaymentCondition": "Parcelado",
     "orderDept": "Engenharia",
-    "orderStatus": "Atendido"
+    "orderStatus": "Atendido",
+    "orderTotalPrice": "1000"
 }*/
 
 // Metodo para Salvar registro
@@ -52,7 +53,8 @@ OrderModel.save = function(data, callback) {
         orderPaymentCondition: data.orderPaymentCondition,
         orderDept: data.orderDept,
         orderStatus: data.orderStatus,
-        orderDate: Date(data.orderDate)
+        orderDate: Date(data.orderDate),
+        orderTotalPrice: data.orderTotalPrice
     }
 
 

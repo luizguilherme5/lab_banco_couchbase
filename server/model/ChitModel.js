@@ -22,7 +22,8 @@ function ChitModel() {
         "chitProductName": "Cimento",
         "chitProductPrice": "28.99"
     },
-    "chitNum": "03"
+    "chitNum": "03",
+    "chitOrderNum": "159"
 }*/
 
 // Metodo para Salvar registro
@@ -42,6 +43,7 @@ ChitModel.save = function(data, callback) {
             chitProductPrice: data.chitProducts.chitProductPrice
         },
         chitNum: data.chitNum,
+        chitOrderNum: data.chitOrderNum
     }
 
 
