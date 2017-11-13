@@ -8,20 +8,34 @@ function StockModel() {
 
 };
 
+/* JSON TESTE
+{
+	"type": "stock",
+	"stockProducts": {
+		"stockProductId": "1",
+		"stockProductName": "Doce",
+       	"stockProductDescr": "Muito bom!",
+        "stockProductQtt": "25",
+        "stockProductSupplier": "Cauê",
+        "stockProductPrice": "2.50"
+	},
+	"stockLocation": "Ceilondres"
+}*/
+
 // Metodo para Salvar registro
 StockModel.save = function(data, callback) {
     console.log(" Inicializando dados JSON ");
     var jsonObject = {
         id: data.stockId ? data.id : uuid.v4(),
         type: data.type,
-        stockProduct: {
-            stockProductId: data.stockProduct.stockProductId,
-            stockProductName: data.stockProduct.stockProductName,
-            stockProductDescr: data.stockProduct.stockProductDescr,
-            stockProductEntryDate: Date(data.stockProduct.stockProductEntryDate),
-            stockProductQtt: data.stockProduct.stockProductQtt,
-            stockProductSupplier: data.stockProduct.stockProductSupplier,
-            stockProductPrice: data.stockProduct.stockProductPrice
+        stockProducts: {
+            stockProductId: data.stockProducts.stockProductId,
+            stockProductName: data.stockProducts.stockProductName,
+            stockProductDescr: data.stockProducts.stockProductDescr,
+            stockProductEntryDate: Date(data.stockProducts.stockProductEntryDate),
+            stockProductQtt: data.stockProducts.stockProductQtt,
+            stockProductSupplier: data.stockProducts.stockProductSupplier,
+            stockProductPrice: data.stockProducts.stockProductPrice
         },
         stockLocation: data.stockLocation
     }
@@ -45,7 +59,7 @@ StockModel.save = function(data, callback) {
 StockModel.fetchOne = function(stockId, callback) {
     console.log(" Pegando um registro ");
     var statement = "SELECT * " +
-    "FROM `" + bucketName + "` WHERE type='stock' AND id == '" + stockId + "';"  
+        "FROM `" + bucketName + "` WHERE type='stock' AND id == '" + stockId + "';"
     var query = N1qlQuery.fromString(statement);
     bucket.query(query, ["stock_" + stockId], function(error, result) {
         if (error) {
