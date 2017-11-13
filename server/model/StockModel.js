@@ -12,8 +12,8 @@ function StockModel() {
 StockModel.save = function(data, callback) {
     console.log(" Inicializando dados JSON ");
     var jsonObject = {
-        stockId: data.stockId ? data.stockId : uuid.v4(),
-        stockType: data.stockType,
+        id: data.stockId ? data.id : uuid.v4(),
+        type: data.type,
         stockProduct: {
             stockProductId: data.stockProduct.stockProductId,
             stockProductName: data.stockProduct.stockProductName,
@@ -45,8 +45,7 @@ StockModel.save = function(data, callback) {
 StockModel.fetchOne = function(stockId, callback) {
     console.log(" Pegando um registro ");
     var statement = "SELECT * " +
-        "FROM `" + bucketName + "` AS stock " +
-        "WHERE META(stock).id = $1";
+    "FROM `" + bucketName + "` WHERE type='stock' AND id == '" + stockId + "';"  
     var query = N1qlQuery.fromString(statement);
     bucket.query(query, ["stock_" + stockId], function(error, result) {
         if (error) {
@@ -60,7 +59,7 @@ StockModel.fetchOne = function(stockId, callback) {
 //Método para pegar todos os registros
 StockModel.fetchAll = function(stockId, callback) {
     console.log(" Pegando todos os registros ");
-    var statement = "SELECT * FROM `" + bucketName + "`;"
+    var statement = "SELECT * FROM `" + bucketName + "`WHERE type = 'stock';"
     var query = N1qlQuery.fromString(statement);
     bucket.query(query, ["stock_" + stockId], function(error, result) {
         if (error) {
