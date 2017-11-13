@@ -16,6 +16,7 @@ var userRoute = require("./server/controller/UsersController.js")(app)
 var orderRoute = require("./server/controller/OrdersController.js")(app)
 var stockRoute = require("./server/controller/StocksController.js")(app)
 var chitRoute = require("./server/controller/ChitsController.js")(app)
+var paymentRoute = require("./server/controller/PaymentsController.js")(app)
 
 app.listen(3000, function() {
     console.log('rodando na porta 3000')

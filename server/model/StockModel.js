@@ -8,8 +8,8 @@ function StockModel() {
 
 };
 
-// JSON TESTE
-/*{
+/* JSON TESTE
+{
 	"type": "stock",
 	"stockProducts": {
 		"stockProductId": "1",

@@ -10,6 +10,7 @@ function ChitModel() {
 
 
 /* JSON TESTE
+{
     "type": "chit",
     "chitFinalPrice": "125.98",
     "chitAliquotIPI": "6.5%",
